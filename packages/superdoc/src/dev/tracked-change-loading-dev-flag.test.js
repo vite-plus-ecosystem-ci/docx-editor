@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'vite-plus/test';
 
 import {
   DISABLE_TRACKED_CHANGE_LOADING_DEFINE,

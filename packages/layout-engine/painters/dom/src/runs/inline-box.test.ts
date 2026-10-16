@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'vite-plus/test';
 import type { Line, LineInlineBox, ParagraphBlock } from '@superdoc/contracts';
 import { paintInlineBoxes, splitInlineBoxRuns } from './inline-box.js';
 

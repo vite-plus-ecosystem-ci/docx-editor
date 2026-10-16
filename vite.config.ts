@@ -13,6 +13,13 @@ import { defineConfig } from 'vite-plus';
 // Oxfmt honours it, and it was the only thing excluding markdown and the
 // generated docs trees.
 export default defineConfig({
+  test: {
+    // Vitest v4 compatibility: preserve mock call history.
+    // Remove after tests no longer rely on calls from setup or earlier tests.
+    // https://release-v1-3-0-viteplus-dev.voidzero-docs.workers.dev/guide/vitest-v5#remove-unneeded-compatibility-settings
+    // https://vitest.dev/guide/migration/#clearmocks-is-enabled-by-default
+    clearMocks: false,
+  },
   fmt: {
     printWidth: 120,
     tabWidth: 2,

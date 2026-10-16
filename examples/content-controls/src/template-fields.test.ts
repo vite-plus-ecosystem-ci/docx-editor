@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vite-plus/test';
 import type { BrowserDocumentApi } from 'superdoc/ui';
 
 import { hasCompatibleTemplateFields, templateFields } from './field-schema';

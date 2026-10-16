@@ -194,7 +194,6 @@
     "vite-plugin-dts": "catalog:",
     "vite-plugin-node-polyfills": "catalog:",
     "vite-plus": "catalog:",
-    "vitest": "catalog:",
     "xml-js": "catalog:"
   }
 }

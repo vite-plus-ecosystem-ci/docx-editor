@@ -14,22 +14,20 @@ import { DocumentApiValidationError } from '../errors.js';
 
 function makeAdapter(receipt?: Partial<StylesApplyReceipt>): StylesAdapter {
   return {
-    apply: mock(
-      (): StylesApplyReceipt => ({
-        success: true,
-        changed: true,
-        resolution: {
-          scope: 'docDefaults',
-          channel: 'run',
-          xmlPart: 'word/styles.xml',
-          xmlPath: 'w:styles/w:docDefaults/w:rPrDefault/w:rPr',
-        },
-        dryRun: false,
-        before: { bold: 'inherit' },
-        after: { bold: 'on' },
-        ...receipt,
-      }),
-    ),
+    apply: mock((): StylesApplyReceipt => ({
+      success: true,
+      changed: true,
+      resolution: {
+        scope: 'docDefaults',
+        channel: 'run',
+        xmlPart: 'word/styles.xml',
+        xmlPath: 'w:styles/w:docDefaults/w:rPrDefault/w:rPr',
+      },
+      dryRun: false,
+      before: { bold: 'inherit' },
+      after: { bold: 'on' },
+      ...receipt,
+    })),
     getCatalog: () => ({
       version: 'style-catalog/v1',
       revision: null,

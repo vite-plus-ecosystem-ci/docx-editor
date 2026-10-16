@@ -767,7 +767,6 @@ const init = async () => {
         //     }
         //   ];
         // }
-
       },
       // 'hrbr-fields': {},
 
@@ -776,7 +775,6 @@ const init = async () => {
         // apiKey: 'test',
         // Optional: Provide a custom endpoint for AI services
         // endpoint: 'https://sd-dev-express-gateway-i6xtm.ondigitalocean.app/insights',
-
       },
       pdf: {
         pdfLib: pdfjsLib,

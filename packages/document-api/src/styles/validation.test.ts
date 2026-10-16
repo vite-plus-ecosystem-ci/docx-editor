@@ -16,21 +16,19 @@ import { DocumentApiValidationError } from '../errors.js';
 
 function makeAdapter(): StylesAdapter {
   return {
-    apply: mock(
-      (): StylesApplyReceipt => ({
-        success: true,
-        changed: true,
-        resolution: {
-          scope: 'docDefaults',
-          channel: 'run',
-          xmlPart: 'word/styles.xml',
-          xmlPath: 'w:styles/w:docDefaults/w:rPrDefault/w:rPr',
-        },
-        dryRun: false,
-        before: {},
-        after: {},
-      }),
-    ),
+    apply: mock((): StylesApplyReceipt => ({
+      success: true,
+      changed: true,
+      resolution: {
+        scope: 'docDefaults',
+        channel: 'run',
+        xmlPart: 'word/styles.xml',
+        xmlPath: 'w:styles/w:docDefaults/w:rPrDefault/w:rPr',
+      },
+      dryRun: false,
+      before: {},
+      after: {},
+    })),
     getCatalog: () => ({
       version: 'style-catalog/v1',
       revision: null,
@@ -52,21 +50,19 @@ function makeAdapter(): StylesAdapter {
 
 function makeApplyOnlyAdapter(): StylesAdapter {
   return {
-    apply: mock(
-      (): StylesApplyReceipt => ({
-        success: true,
-        changed: false,
-        resolution: {
-          scope: 'docDefaults',
-          channel: 'run',
-          xmlPart: 'word/styles.xml',
-          xmlPath: 'w:styles/w:docDefaults/w:rPrDefault/w:rPr',
-        },
-        dryRun: false,
-        before: {},
-        after: {},
-      }),
-    ),
+    apply: mock((): StylesApplyReceipt => ({
+      success: true,
+      changed: false,
+      resolution: {
+        scope: 'docDefaults',
+        channel: 'run',
+        xmlPart: 'word/styles.xml',
+        xmlPath: 'w:styles/w:docDefaults/w:rPrDefault/w:rPr',
+      },
+      dryRun: false,
+      before: {},
+      after: {},
+    })),
   };
 }
 

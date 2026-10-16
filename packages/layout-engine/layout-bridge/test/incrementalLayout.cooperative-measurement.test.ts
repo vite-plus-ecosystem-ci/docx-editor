@@ -15,24 +15,22 @@ const blocks: FlowBlock[] = Array.from({ length: 12 }, (_, index) => ({
 }));
 
 const createMeasure = () =>
-  vi.fn(
-    async (_block: FlowBlock, constraints: { maxWidth: number; maxHeight: number }): Promise<ParagraphMeasure> => ({
-      kind: 'paragraph',
-      lines: [
-        {
-          fromRun: 0,
-          fromChar: 0,
-          toRun: 0,
-          toChar: 1,
-          width: constraints.maxWidth,
-          ascent: 8,
-          descent: 2,
-          lineHeight: 10,
-        },
-      ],
-      totalHeight: 10,
-    }),
-  );
+  vi.fn(async (_block: FlowBlock, constraints: { maxWidth: number; maxHeight: number }): Promise<ParagraphMeasure> => ({
+    kind: 'paragraph',
+    lines: [
+      {
+        fromRun: 0,
+        fromChar: 0,
+        toRun: 0,
+        toChar: 1,
+        width: constraints.maxWidth,
+        ascent: 8,
+        descent: 2,
+        lineHeight: 10,
+      },
+    ],
+    totalHeight: 10,
+  }));
 
 describe('incrementalLayout cooperative measurement checkpoints', () => {
   beforeEach(() => measureCache.clear());

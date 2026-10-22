@@ -660,9 +660,8 @@ describe('incrementalLayout affected frontier', () => {
       paragraphOwner,
       ...bodyBlocks.slice(replacementIndex + 1),
     ];
-    const measureBlock = vi.fn(
-      async (block: FlowBlock): Promise<Measure> =>
-        block.kind === 'pageBreak' ? { kind: 'pageBreak' } : measureFor(block),
+    const measureBlock = vi.fn(async (block: FlowBlock): Promise<Measure> =>
+      block.kind === 'pageBreak' ? { kind: 'pageBreak' } : measureFor(block),
     );
     const previous = await incrementalLayout([], null, previousBlocks, options, measureBlock);
     previous.layout.layoutEpoch = 1;
@@ -764,9 +763,8 @@ describe('incrementalLayout affected frontier', () => {
         ...removedBlocks,
         ...bodyBlocks.slice(replacementIndex + 1),
       ];
-      const measureBlock = vi.fn(
-        async (block: FlowBlock): Promise<Measure> =>
-          block.kind === 'pageBreak' || block.kind === 'columnBreak' ? { kind: block.kind } : measureFor(block),
+      const measureBlock = vi.fn(async (block: FlowBlock): Promise<Measure> =>
+        block.kind === 'pageBreak' || block.kind === 'columnBreak' ? { kind: block.kind } : measureFor(block),
       );
       const previous = await incrementalLayout([], null, previousBlocks, options, measureBlock);
       previous.layout.layoutEpoch = 1;

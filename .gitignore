@@ -104,3 +104,4 @@ build-receipts/
 .ci-docx-engine/
 .ci-superdoc-artifact/
 superdoc-build-artifact.json.gz
+.vitest/

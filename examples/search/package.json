@@ -4,12 +4,12 @@
   "type": "module",
   "packageManager": "pnpm@11.24.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vp dev",
     "typecheck": "tsc --noEmit",
-    "build": "vite build",
+    "build": "vp build",
     "test": "playwright test",
     "browsers": "playwright install chromium",
-    "preview": "vite preview"
+    "preview": "vp preview"
   },
   "dependencies": {
     "superdoc": "^2.4.0"
@@ -18,6 +18,6 @@
     "@playwright/test": "^1.57.0",
     "@types/node": "^22.0.0",
     "typescript": "^5.9.2",
-    "vite": "^7.2.7"
+    "vite": "catalog:"
   }
 }

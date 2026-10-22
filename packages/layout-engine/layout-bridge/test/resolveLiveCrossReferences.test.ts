@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'vite-plus/test';
 import type { FlowBlock, Layout, ParagraphBlock, TextRun } from '@superdoc/contracts';
 import { buildPageStyleReferenceResolver, resolveLiveCrossReferences } from '../src/resolveLiveCrossReferences';
 import { incrementalLayout, measureCache } from '../src/incrementalLayout';

@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 
 const require = createRequire(import.meta.url);
-const { test } = process.env.VITEST ? await import('vitest') : require('node:test');
+const { test } = process.env.VITEST ? await import('vite-plus/test') : require('node:test');
 
 const scriptRoot = path.dirname(fileURLToPath(import.meta.url));
 

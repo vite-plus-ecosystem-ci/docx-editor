@@ -31,7 +31,7 @@ catalog:
   '@types/ws': ^8.18.1
   '@vitejs/plugin-react': ^5.1.1
   '@vitejs/plugin-vue': 6.0.8
-  '@vitest/coverage-v8': 4.1.10
+  '@vitest/coverage-v8': 5.0.5
   '@vue/test-utils': ^2.4.6
   vue-tsc: ^2.2.12
   buffer-crc32: ^1.0.0
@@ -101,10 +101,10 @@ catalog:
   utif2: ^4.1.0
   uuid: ^11.1.1
   verdaccio: ^6.1.6
-  vite: npm:@voidzero-dev/vite-plus-core@0.2.7
+  vite: npm:@voidzero-dev/vite-plus-core@0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e
   vite-plugin-dts: ~4.5.4
   vite-plugin-node-polyfills: ^0.28.0
-  vitest: 4.1.10
+  vitest: 5.0.5
   vue: 3.5.32
   xml-js: 1.6.11
   ws: ^8.18.0
@@ -112,7 +112,7 @@ catalog:
   y-protocols: ^1.0.6
   y-websocket: ^3.0.0
   yjs: ^13.6.19 # range allows consumers to use newer patch versions
-  vite-plus: 0.2.7
+  vite-plus: 0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e
 
 allowBuilds:
   '@parcel/watcher': false
@@ -146,11 +146,6 @@ overrides:
   '@vue/runtime-dom': '3.5.32'
   '@vue/server-renderer': '3.5.32'
   '@vue/shared': '3.5.32'
-  # NOT aliased to the Vite+ core. `@voidzero-dev/vite-plus-core` publishes no
-  # `bin`, so overriding every package to it removes the `vite` executable that
-  # Examples invoke from their `dev` and `build` scripts. Packages that build
-  # through Vite+ get it from `vite-plus` in their own devDependencies.
-  vite: '^7.2.7'
   axios: '1.18.0'
   protobufjs@7: '7.6.4'
   protobufjs@8: '8.6.4'
@@ -180,15 +175,19 @@ overrides:
   y-websocket: '^3.0.0'
   yjs: '^13.6.19'
   '@superdoc/cli>yjs': '13.6.31'
-  vitest: 'catalog:'
+  vite@*: 'catalog:'
+  vitest@*: 'catalog:'
 # Vite+ ships its Vite fork as vite-plus-core 0.2.x under the `vite` alias, so
 # no plugin's `^7 || ^8` peer range can match it. Pin the exact versions we
 # actually resolve instead of waiving the ranges wholesale, so every other peer
 # mismatch still surfaces at install time.
 peerDependencyRules:
   allowedVersions:
-    vite: 0.2.7
-    vitest: 4.1.10
+    vite: '*'
+    vitest: '*'
+  allowAny:
+    - vite
+    - vitest
 
 # AIDEV-NOTE: Configuration gates run before native system dependencies exist;
 # dependency lifecycle scripts belong to the explicit install step.
@@ -202,3 +201,13 @@ minimumReleaseAgeExclude:
   - '@superdoc/sdk-linux-x64@2.20.0-next.15 || 2.20.0-next.17 || 2.20.0 || 2.20.1-next.1 || 2.20.1-next.2 || 2.20.1-next.3 || 2.20.1-next.4 || 2.20.1-next.5 || 2.20.1-next.6 || 2.20.1-next.7 || 2.20.1-next.8 || 2.20.1-next.9 || 2.20.1-next.10 || 2.20.1-next.11 || 2.21.0-next.1 || 2.21.0-next.2 || 2.21.0-next.3 || 2.21.0-next.4 || 2.21.0-next.5 || 2.21.0-next.6 || 2.21.0-next.7 || 2.21.0-next.8 || 2.21.0-next.9 || 2.21.0-next.10 || 2.21.0-next.11 || 2.21.0-next.12 || 2.21.0 || 2.22.0-next.2 || 2.22.0-next.3 || 2.22.0-next.4 || 2.22.0-next.5 || 2.22.0-next.6 || 2.22.0-next.7 || 2.22.0-next.8 || 2.22.0-next.9 || 2.22.0-next.10 || 2.22.0-next.11 || 2.22.0-next.12 || 2.22.0-next.13 || 2.22.0-next.14 || 2.22.0-next.15 || 2.22.0-next.16 || 2.22.0-next.17 || 2.22.0-next.18 || 2.23.0-next.1 || 2.23.0-next.2 || 2.23.0-next.3 || 2.23.0-next.4 || 2.23.0-next.5 || 2.23.0-next.6 || 2.23.0-next.7 || 2.23.0-next.9'
   - '@superdoc/sdk-windows-x64@2.20.0-next.15 || 2.20.0-next.17 || 2.20.0 || 2.20.1-next.1 || 2.20.1-next.2 || 2.20.1-next.3 || 2.20.1-next.4 || 2.20.1-next.5 || 2.20.1-next.6 || 2.20.1-next.7 || 2.20.1-next.8 || 2.20.1-next.9 || 2.20.1-next.10 || 2.20.1-next.11 || 2.21.0-next.1 || 2.21.0-next.2 || 2.21.0-next.3 || 2.21.0-next.4 || 2.21.0-next.5 || 2.21.0-next.6 || 2.21.0-next.7 || 2.21.0-next.8 || 2.21.0-next.9 || 2.21.0-next.10 || 2.21.0-next.11 || 2.21.0 || 2.22.0-next.2 || 2.22.0-next.3 || 2.22.0-next.4 || 2.22.0-next.5 || 2.22.0-next.6 || 2.22.0-next.7 || 2.22.0-next.9 || 2.22.0-next.10 || 2.22.0-next.11 || 2.22.0-next.12 || 2.22.0-next.13 || 2.22.0-next.14 || 2.22.0-next.15 || 2.22.0-next.16 || 2.22.0-next.17 || 2.22.0-next.18 || 2.23.0-next.1 || 2.23.0-next.2 || 2.23.0-next.3 || 2.23.0-next.4 || 2.23.0-next.5 || 2.23.0-next.7 || 2.23.0-next.8 || 2.23.0-next.9'
   - '@superdoc/sdk@2.20.0-next.15 || 2.20.0-next.16 || 2.20.0-next.17 || 2.20.0 || 2.20.1-next.1 || 2.20.1-next.2 || 2.20.1-next.3 || 2.20.1-next.4 || 2.20.1-next.5 || 2.20.1-next.6 || 2.20.1-next.7 || 2.20.1-next.8 || 2.20.1-next.9 || 2.20.1-next.10 || 2.20.1-next.11 || 2.21.0-next.1 || 2.21.0-next.2 || 2.21.0-next.3 || 2.21.0-next.4 || 2.21.0-next.5 || 2.21.0-next.6 || 2.21.0-next.7 || 2.21.0-next.8 || 2.21.0-next.9 || 2.21.0-next.10 || 2.21.0-next.11 || 2.21.0-next.12 || 2.21.0 || 2.22.0-next.2 || 2.22.0-next.3 || 2.22.0-next.4 || 2.22.0-next.5 || 2.22.0-next.6 || 2.22.0-next.7 || 2.22.0-next.8 || 2.22.0-next.9 || 2.22.0-next.10 || 2.22.0-next.11 || 2.22.0-next.12 || 2.22.0-next.13 || 2.22.0-next.14 || 2.22.0-next.15 || 2.22.0-next.16 || 2.22.0-next.17 || 2.22.0-next.18 || 2.23.0-next.1 || 2.23.0-next.2 || 2.23.0-next.3 || 2.23.0-next.4 || 2.23.0-next.5 || 2.23.0-next.6 || 2.23.0-next.7 || 2.23.0-next.8 || 2.23.0-next.9'
+  - '@voidzero-dev/vite-plus-core@0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e'
+  - '@voidzero-dev/vite-plus-darwin-arm64@0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e'
+  - '@voidzero-dev/vite-plus-darwin-x64@0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e'
+  - '@voidzero-dev/vite-plus-linux-arm64-gnu@0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e'
+  - '@voidzero-dev/vite-plus-linux-arm64-musl@0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e'
+  - '@voidzero-dev/vite-plus-linux-x64-gnu@0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e'
+  - '@voidzero-dev/vite-plus-linux-x64-musl@0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e'
+  - '@voidzero-dev/vite-plus-win32-arm64-msvc@0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e'
+  - '@voidzero-dev/vite-plus-win32-x64-msvc@0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e'
+  - vite-plus@0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e

@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'vite-plus/test';
 import type { ParagraphBlock, Run } from './index.js';
 import {
   INLINE_OBJECT_REPLACEMENT_CHARACTER,

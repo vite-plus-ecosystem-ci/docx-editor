@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'vite-plus/test';
 import type { FlowBlock, Measure, ParagraphMeasure } from '@superdoc/contracts';
 import { createLayoutDocumentContinuation, layoutDocument, type LayoutOptions } from './index.js';
 import {

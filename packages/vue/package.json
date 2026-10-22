@@ -49,7 +49,6 @@
     "vite": "catalog:",
     "vite-plugin-dts": "catalog:",
     "vite-plus": "catalog:",
-    "vitest": "catalog:",
     "vue": "catalog:",
     "vue-tsc": "catalog:"
   },

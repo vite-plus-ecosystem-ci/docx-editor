@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'vite-plus/test';
 import { inlineBoxStyleSignature, isFiniteNonNegativeInteger, normalizeInlineBoxLogicalSides } from './inline-box.js';
 
 const style = {

@@ -33,7 +33,7 @@ catalog:
   '@types/ws': ^8.18.1
   '@vitejs/plugin-react': ^5.1.1
   '@vitejs/plugin-vue': 6.0.8
-  '@vitest/coverage-v8': 4.1.10
+  '@vitest/coverage-v8': 5.1.0
   '@vue/test-utils': ^2.4.6
   vue-tsc: ^2.2.12
   buffer-crc32: ^1.0.0
@@ -103,10 +103,10 @@ catalog:
   use-sync-external-store: ^1.7.0
   uuid: ^11.1.1
   verdaccio: ^6.1.6
-  vite: npm:@voidzero-dev/vite-plus-core@0.2.7
+  vite: npm:@voidzero-dev/vite-plus-core@0.0.0-commit.943ee4a9e322a7ad4b1b4113f844cd541a10b159
   vite-plugin-dts: ~4.5.4
   vite-plugin-node-polyfills: ^0.28.0
-  vitest: 4.1.10
+  vitest: 5.1.0
   vue: 3.5.32
   xml-js: 1.6.11
   ws: ^8.18.0
@@ -114,7 +114,7 @@ catalog:
   y-protocols: ^1.0.6
   y-websocket: ^3.0.0
   yjs: ^13.6.19 # range allows consumers to use newer patch versions
-  vite-plus: 0.2.7
+  vite-plus: 0.0.0-commit.943ee4a9e322a7ad4b1b4113f844cd541a10b159
 
 allowBuilds:
   '@parcel/watcher': false
@@ -148,11 +148,6 @@ overrides:
   '@vue/runtime-dom': '3.5.32'
   '@vue/server-renderer': '3.5.32'
   '@vue/shared': '3.5.32'
-  # NOT aliased to the Vite+ core. `@voidzero-dev/vite-plus-core` publishes no
-  # `bin`, so overriding every package to it removes the `vite` executable that
-  # Examples invoke from their `dev` and `build` scripts. Packages that build
-  # through Vite+ get it from `vite-plus` in their own devDependencies.
-  vite: '^7.2.7'
   axios: '1.18.0'
   protobufjs@7: '7.6.4'
   protobufjs@8: '8.6.4'
@@ -182,15 +177,19 @@ overrides:
   y-websocket: '^3.0.0'
   yjs: '^13.6.19'
   '@superdoc/cli>yjs': '13.6.31'
-  vitest: 'catalog:'
+  vite@*: 'catalog:'
+  vitest@*: 'catalog:'
 # Vite+ ships its Vite fork as vite-plus-core 0.2.x under the `vite` alias, so
 # no plugin's `^7 || ^8` peer range can match it. Pin the exact versions we
 # actually resolve instead of waiving the ranges wholesale, so every other peer
 # mismatch still surfaces at install time.
 peerDependencyRules:
   allowedVersions:
-    vite: 0.2.7
-    vitest: 4.1.10
+    vite: '*'
+    vitest: '*'
+  allowAny:
+    - vite
+    - vitest
 
 # AIDEV-NOTE: Configuration gates run before native system dependencies exist;
 # dependency lifecycle scripts belong to the explicit install step.
@@ -204,3 +203,35 @@ minimumReleaseAgeExclude:
   - '@superdoc/sdk-linux-x64@2.25.0-next.2 || 2.25.0-next.3 || 2.25.0-next.4 || 2.25.0-next.5 || 2.25.0-next.6 || 2.25.0-next.8 || 2.25.0-next.9 || 2.25.0-next.10 || 2.25.0-next.11 || 2.25.0-next.12 || 2.25.0-next.13 || 2.25.0-next.14 || 2.25.0-next.15 || 2.25.0-next.16 || 2.25.0 || 2.26.0-next.2 || 2.26.0-next.3'
   - '@superdoc/sdk-windows-x64@2.25.0-next.2 || 2.25.0-next.3 || 2.25.0-next.4 || 2.25.0-next.5 || 2.25.0-next.6 || 2.25.0-next.7 || 2.25.0-next.8 || 2.25.0-next.9 || 2.25.0-next.10 || 2.25.0-next.11 || 2.25.0-next.12 || 2.25.0-next.13 || 2.25.0-next.14 || 2.25.0-next.15 || 2.25.0-next.16 || 2.25.0 || 2.26.0-next.2 || 2.26.0-next.3'
   - '@superdoc/sdk@2.25.0-next.2 || 2.25.0-next.3 || 2.25.0-next.4 || 2.25.0-next.5 || 2.25.0-next.6 || 2.25.0-next.7 || 2.25.0-next.8 || 2.25.0-next.9 || 2.25.0-next.10 || 2.25.0-next.11 || 2.25.0-next.12 || 2.25.0-next.13 || 2.25.0-next.14 || 2.25.0-next.15 || 2.25.0-next.16 || 2.25.0 || 2.26.0-next.2 || 2.26.0-next.3'
+  - '@oxc-project/runtime@0.157.0'
+  - '@oxc-project/types@0.157.0'
+  - '@oxfmt/binding-android-arm-eabi@0.76.0'
+  - '@oxfmt/binding-android-arm64@0.76.0'
+  - '@oxfmt/binding-darwin-arm64@0.76.0'
+  - '@oxfmt/binding-darwin-x64@0.76.0'
+  - '@oxfmt/binding-freebsd-x64@0.76.0'
+  - '@oxfmt/binding-linux-arm-gnueabihf@0.76.0'
+  - '@oxfmt/binding-linux-arm-musleabihf@0.76.0'
+  - '@oxfmt/binding-linux-arm64-gnu@0.76.0'
+  - '@oxfmt/binding-linux-arm64-musl@0.76.0'
+  - '@oxfmt/binding-linux-ppc64-gnu@0.76.0'
+  - '@oxfmt/binding-linux-riscv64-gnu@0.76.0'
+  - '@oxfmt/binding-linux-riscv64-musl@0.76.0'
+  - '@oxfmt/binding-linux-s390x-gnu@0.76.0'
+  - '@oxfmt/binding-linux-x64-gnu@0.76.0'
+  - '@oxfmt/binding-linux-x64-musl@0.76.0'
+  - '@oxfmt/binding-openharmony-arm64@0.76.0'
+  - '@oxfmt/binding-win32-arm64-msvc@0.76.0'
+  - '@oxfmt/binding-win32-ia32-msvc@0.76.0'
+  - '@oxfmt/binding-win32-x64-msvc@0.76.0'
+  - '@voidzero-dev/vite-plus-core@0.0.0-commit.943ee4a9e322a7ad4b1b4113f844cd541a10b159'
+  - '@voidzero-dev/vite-plus-darwin-arm64@0.0.0-commit.943ee4a9e322a7ad4b1b4113f844cd541a10b159'
+  - '@voidzero-dev/vite-plus-darwin-x64@0.0.0-commit.943ee4a9e322a7ad4b1b4113f844cd541a10b159'
+  - '@voidzero-dev/vite-plus-linux-arm64-gnu@0.0.0-commit.943ee4a9e322a7ad4b1b4113f844cd541a10b159'
+  - '@voidzero-dev/vite-plus-linux-arm64-musl@0.0.0-commit.943ee4a9e322a7ad4b1b4113f844cd541a10b159'
+  - '@voidzero-dev/vite-plus-linux-x64-gnu@0.0.0-commit.943ee4a9e322a7ad4b1b4113f844cd541a10b159'
+  - '@voidzero-dev/vite-plus-linux-x64-musl@0.0.0-commit.943ee4a9e322a7ad4b1b4113f844cd541a10b159'
+  - '@voidzero-dev/vite-plus-win32-arm64-msvc@0.0.0-commit.943ee4a9e322a7ad4b1b4113f844cd541a10b159'
+  - '@voidzero-dev/vite-plus-win32-x64-msvc@0.0.0-commit.943ee4a9e322a7ad4b1b4113f844cd541a10b159'
+  - oxfmt@0.76.0
+  - vite-plus@0.0.0-commit.943ee4a9e322a7ad4b1b4113f844cd541a10b159

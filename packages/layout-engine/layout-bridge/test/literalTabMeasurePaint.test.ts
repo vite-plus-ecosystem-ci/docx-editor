@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { beforeAll, describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vite-plus/test';
 import type { ParagraphBlock, ParagraphMeasure } from '@superdoc/contracts';
 import { measureBlock } from '@superdoc/measuring-dom';
 import { resolveCanvas } from '../../measuring/dom/src/canvas-resolver.js';

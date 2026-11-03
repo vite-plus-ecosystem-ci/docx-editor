@@ -1,6 +1,6 @@
 import { act, type ForwardedRef } from 'react';
 import { createRoot } from 'react-dom/client';
-import { expect, test, vi } from 'vitest';
+import { expect, test, vi } from 'vite-plus/test';
 
 const wrapper = vi.hoisted(() => {
   let finishExport = () => {};

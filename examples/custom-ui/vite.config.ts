@@ -1,7 +1,7 @@
 import { createRequire } from 'node:module';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { defineConfig, searchForWorkspaceRoot } from 'vite';
+import { defineConfig, searchForWorkspaceRoot } from 'vite-plus';
 
 const exampleRoot = path.dirname(fileURLToPath(import.meta.url));
 const superdocEntry = fileURLToPath(import.meta.resolve('superdoc'));

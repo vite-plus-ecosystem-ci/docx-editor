@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vite-plus/test';
 import { LAYOUT_BOUNDARY_SCHEMA, type FlowBlock, type ParagraphBlock } from '@superdoc/contracts';
 import { createWebFlowPainter } from './painter.js';
 import { ensureWebFlowStyles } from './styles.js';

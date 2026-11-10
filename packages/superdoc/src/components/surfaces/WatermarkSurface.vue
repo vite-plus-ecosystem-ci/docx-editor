@@ -190,9 +190,7 @@ onBeforeUnmount(() => {
                 :checked="snapshot.selectedIds.includes(item.id)"
                 @change="selectWatermark(item.id, $event)"
               />
-              <span
-                >{{ item.label }}<small>{{ item.locations }}</small></span
-              >
+              <span>{{ item.label }}<small>{{ item.locations }}</small></span>
             </label>
           </div>
           <button type="button" :disabled="!editable" @click="model.selectWatermarks([])">Add watermark</button>
@@ -319,8 +317,7 @@ onBeforeUnmount(() => {
             <div class="sd-watermark__picture">
               <img v-if="snapshot.draft.src" :src="snapshot.draft.src" alt="Selected picture" />
               <div>
-                <strong>{{ snapshot.draft.pictureName || 'No picture selected' }}</strong
-                ><small>PNG or JPEG</small>
+                <strong>{{ snapshot.draft.pictureName || 'No picture selected' }}</strong><small>PNG or JPEG</small>
               </div>
               <button type="button" @click="fileInput?.click()">
                 {{ snapshot.draft.pictureName ? 'Replace picture' : 'Choose picture' }}

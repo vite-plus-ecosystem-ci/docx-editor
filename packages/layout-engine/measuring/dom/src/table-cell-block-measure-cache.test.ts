@@ -161,16 +161,14 @@ describe('table cell block measure cache', () => {
   });
 
   it('remeasures when widening could merge multiple lines', async () => {
-    const measure = vi.fn(
-      async (): Promise<Measure> => ({
-        ...paragraphMeasure(),
-        lines: [
-          { ...paragraphMeasure().lines[0]!, width: 80 },
-          { ...paragraphMeasure().lines[0]!, width: 40 },
-        ],
-        totalHeight: 24,
-      }),
-    );
+    const measure = vi.fn(async (): Promise<Measure> => ({
+      ...paragraphMeasure(),
+      lines: [
+        { ...paragraphMeasure().lines[0]!, width: 80 },
+        { ...paragraphMeasure().lines[0]!, width: 40 },
+      ],
+      totalHeight: 24,
+    }));
     const blocks: FlowBlock[] = [
       {
         kind: 'paragraph',

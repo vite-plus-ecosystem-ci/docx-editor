@@ -6,11 +6,9 @@ import type {
 } from '../stores/helpers/v2-review-adapters.js';
 
 type RequiredMethodMocks<Adapter> = {
-  [Member in keyof Adapter as Member extends 'documentId'
-    ? never
-    : undefined extends Adapter[Member]
-      ? never
-      : Member]-?: Adapter[Member] extends (...args: never[]) => unknown ? Mock<Adapter[Member]> : never;
+  [
+    Member in keyof Adapter as Member extends 'documentId' ? never : undefined extends Adapter[Member] ? never : Member
+  ]-?: Adapter[Member] extends (...args: never[]) => unknown ? Mock<Adapter[Member]> : never;
 };
 
 export type V2CommentsAdapterFake = { documentId: V2ReviewAdapterDocumentId } & RequiredMethodMocks<V2CommentsAdapter>;

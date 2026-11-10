@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vite-plus/test';
 import { createReviewGeometryDelivery } from './v2-review-geometry-delivery.js';
 
 const stage = (id: string, epoch = 7) => ({

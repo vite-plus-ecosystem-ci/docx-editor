@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'vite-plus/test';
 
 describe('unconditional tracked-change loading', () => {
   it.each(['vite.config.js', 'vite.config.cdn.js', 'vite.config.devapp.js'])(

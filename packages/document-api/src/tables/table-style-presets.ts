@@ -156,45 +156,39 @@ function buildDesignedWordPresets(): WordTablePresetDefinition[] {
 }
 
 export const WORD_TABLE_PRESETS: readonly WordTablePresetDefinition[] = Object.freeze([
-  ...WORD_PLAIN_STYLES.map(
-    (style): WordTablePresetDefinition => ({
-      id: style.id,
-      name: style.name ?? style.wordStyleName,
-      source: 'word',
-      group: 'plain',
-      accent: null,
-      appearance: wordPresetAppearance(style.wordStyleId),
-      wordStyleName: style.wordStyleName,
-      wordStyleId: style.wordStyleId,
-    }),
-  ),
+  ...WORD_PLAIN_STYLES.map((style): WordTablePresetDefinition => ({
+    id: style.id,
+    name: style.name ?? style.wordStyleName,
+    source: 'word',
+    group: 'plain',
+    accent: null,
+    appearance: wordPresetAppearance(style.wordStyleId),
+    wordStyleName: style.wordStyleName,
+    wordStyleId: style.wordStyleId,
+  })),
   ...buildDesignedWordPresets(),
 ]);
 
 export const SUPERDOC_TABLE_PRESETS: readonly TablePresetInfo[] = Object.freeze(
-  SUPERDOC_TABLE_PRESET_IDS.map(
-    (id): TablePresetInfo => ({
-      id,
-      name: SUPERDOC_PRESET_NAMES[id],
-      source: 'superdoc',
-      group: 'convenience',
-      accent: null,
-      appearance: null,
-    }),
-  ),
+  SUPERDOC_TABLE_PRESET_IDS.map((id): TablePresetInfo => ({
+    id,
+    name: SUPERDOC_PRESET_NAMES[id],
+    source: 'superdoc',
+    group: 'convenience',
+    accent: null,
+    appearance: null,
+  })),
 );
 
 export const TABLE_PRESET_CATALOGUE: readonly TablePresetInfo[] = Object.freeze([
-  ...WORD_TABLE_PRESETS.map(
-    ({ id, name, source, group, accent, appearance }): TablePresetInfo => ({
-      id,
-      name,
-      source,
-      group,
-      accent,
-      appearance,
-    }),
-  ),
+  ...WORD_TABLE_PRESETS.map(({ id, name, source, group, accent, appearance }): TablePresetInfo => ({
+    id,
+    name,
+    source,
+    group,
+    accent,
+    appearance,
+  })),
   ...SUPERDOC_TABLE_PRESETS,
 ]);
 

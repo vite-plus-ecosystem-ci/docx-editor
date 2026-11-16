@@ -43,24 +43,22 @@ function makeAdapters() {
     })),
   };
   const capabilitiesAdapter: CapabilitiesAdapter = {
-    get: mock(
-      (): DocumentApiCapabilities => ({
-        global: {
-          trackChanges: { enabled: false },
-          comments: { enabled: false },
-          lists: { enabled: false },
-          dryRun: { enabled: false },
-        },
-        format: { supportedInlineProperties: {} as DocumentApiCapabilities['format']['supportedInlineProperties'] },
-        operations: {} as DocumentApiCapabilities['operations'],
-        planEngine: {
-          supportedStepOps: [],
-          supportedNonUniformStrategies: [],
-          supportedSetMarks: [],
-          regex: { maxPatternLength: 1024, maxExecutionMs: 100 },
-        },
-      }),
-    ),
+    get: mock((): DocumentApiCapabilities => ({
+      global: {
+        trackChanges: { enabled: false },
+        comments: { enabled: false },
+        lists: { enabled: false },
+        dryRun: { enabled: false },
+      },
+      format: { supportedInlineProperties: {} as DocumentApiCapabilities['format']['supportedInlineProperties'] },
+      operations: {} as DocumentApiCapabilities['operations'],
+      planEngine: {
+        supportedStepOps: [],
+        supportedNonUniformStrategies: [],
+        supportedSetMarks: [],
+        regex: { maxPatternLength: 1024, maxExecutionMs: 100 },
+      },
+    })),
     resolve: mock((input) => ({
       operationId: input.operationId,
       available: { kind: 'supported' as const },
@@ -177,22 +175,20 @@ function makeAdapters() {
   // templates.apply is the first async Document API operation (SD-3247): the
   // adapter resolves a Promise<TemplatesApplyReceipt>.
   const templatesAdapter: TemplatesAdapter = {
-    apply: mock(
-      async (): Promise<TemplatesApplyReceipt> => ({
-        success: true as const,
-        changed: true,
-        dryRun: false,
-        bodyPolicy: 'preserve' as const,
-        source: { kind: 'base64' as const, fingerprint: 'deadbeef', partCount: 2 },
-        detectedScopes: [{ scope: 'styles' as const, part: 'word/styles.xml' }],
-        appliedScopes: [{ scope: 'styles' as const, part: 'word/styles.xml' }],
-        skippedScopes: [],
-        unsupportedItems: [],
-        changedParts: [{ part: 'word/styles.xml', scope: 'styles' as const, change: 'merged' as const }],
-        idMappings: {},
-        warnings: [],
-      }),
-    ),
+    apply: mock(async (): Promise<TemplatesApplyReceipt> => ({
+      success: true as const,
+      changed: true,
+      dryRun: false,
+      bodyPolicy: 'preserve' as const,
+      source: { kind: 'base64' as const, fingerprint: 'deadbeef', partCount: 2 },
+      detectedScopes: [{ scope: 'styles' as const, part: 'word/styles.xml' }],
+      appliedScopes: [{ scope: 'styles' as const, part: 'word/styles.xml' }],
+      skippedScopes: [],
+      unsupportedItems: [],
+      changedParts: [{ part: 'word/styles.xml', scope: 'styles' as const, change: 'merged' as const }],
+      idMappings: {},
+      warnings: [],
+    })),
   };
   const trackChangesAdapter: TrackChangesAdapter = {
     list: mock(() => ({ evaluatedRevision: '', total: 0, items: [], page: { limit: 50, offset: 0, returned: 0 } })),

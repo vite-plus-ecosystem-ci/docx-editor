@@ -97,21 +97,21 @@ describe('FloatingComments sidebar continuity', () => {
     document.body.appendChild(parent);
     outerScrollTop = 0;
 
-    const rectSpy = vi
-      .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
-      .mockImplementation(function (this: HTMLElement) {
-        if (this === parent || this.classList?.contains('section-wrapper')) return makeRect(-outerScrollTop, 600);
-        const placeholder = this.classList?.contains('comment-placeholder')
-          ? this
-          : this.closest<HTMLElement>('.comment-placeholder');
-        if (placeholder) {
-          const layoutTop = Number.parseFloat(placeholder.style.top) || 0;
-          return makeRect(
-            layoutTop + readTranslateY(placeholder.closest<HTMLElement>('.sidebar-container')) - outerScrollTop,
-          );
-        }
-        return makeRect(0);
-      });
+    const rectSpy = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function (
+      this: HTMLElement,
+    ) {
+      if (this === parent || this.classList?.contains('section-wrapper')) return makeRect(-outerScrollTop, 600);
+      const placeholder = this.classList?.contains('comment-placeholder')
+        ? this
+        : this.closest<HTMLElement>('.comment-placeholder');
+      if (placeholder) {
+        const layoutTop = Number.parseFloat(placeholder.style.top) || 0;
+        return makeRect(
+          layoutTop + readTranslateY(placeholder.closest<HTMLElement>('.sidebar-container')) - outerScrollTop,
+        );
+      }
+      return makeRect(0);
+    });
     restoreRect = () => rectSpy.mockRestore();
   });
 

@@ -198,7 +198,6 @@
     "vite-plugin-dts": "catalog:",
     "vite-plugin-node-polyfills": "catalog:",
     "vite-plus": "catalog:",
-    "vitest": "catalog:",
     "vue-tsc": "catalog:"
   }
 }

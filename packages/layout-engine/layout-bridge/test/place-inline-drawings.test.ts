@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'vite-plus/test';
 import type { DrawingBlock, DrawingMeasure, Layout, Line, ParagraphBlock, ParagraphMeasure } from '@superdoc/contracts';
 import { placeInlineDrawings } from '../src/place-inline-drawings.js';
 

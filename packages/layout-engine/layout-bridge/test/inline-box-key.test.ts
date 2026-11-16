@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'vite-plus/test';
 import type { InlineBoxSpan } from '@superdoc/contracts';
 import { inlineBoxKey } from '../src/inline-box-key.js';
 

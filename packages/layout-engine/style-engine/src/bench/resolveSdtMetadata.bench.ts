@@ -1,4 +1,4 @@
-import { bench } from 'vite-plus/test';
+import { test } from 'vite-plus/test';
 import { clearSdtMetadataCache, resolveSdtMetadata } from '../index.js';
 
 function makeBenchAttrs(hash: string): Record<string, unknown> {
@@ -14,11 +14,13 @@ function makeBenchAttrs(hash: string): Record<string, unknown> {
 }
 
 let missCounter = 0;
-bench('resolveSdtMetadata cache miss', () => {
-  resolveSdtMetadata({
-    nodeType: 'fieldAnnotation',
-    attrs: makeBenchAttrs(`miss-${missCounter++}`),
-  });
+test('resolveSdtMetadata cache miss', async ({ bench }) => {
+  await bench('resolveSdtMetadata cache miss', () => {
+    resolveSdtMetadata({
+      nodeType: 'fieldAnnotation',
+      attrs: makeBenchAttrs(`miss-${missCounter++}`),
+    });
+  }).run();
 });
 
 const cacheHitKey = 'hit-key';
@@ -28,9 +30,11 @@ resolveSdtMetadata({
   attrs: makeBenchAttrs(cacheHitKey),
 });
 
-bench('resolveSdtMetadata cache hit', () => {
-  resolveSdtMetadata({
-    nodeType: 'fieldAnnotation',
-    attrs: makeBenchAttrs(cacheHitKey),
-  });
+test('resolveSdtMetadata cache hit', async ({ bench }) => {
+  await bench('resolveSdtMetadata cache hit', () => {
+    resolveSdtMetadata({
+      nodeType: 'fieldAnnotation',
+      attrs: makeBenchAttrs(cacheHitKey),
+    });
+  }).run();
 });

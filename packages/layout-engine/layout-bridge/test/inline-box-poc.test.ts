@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { beforeAll, describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vite-plus/test';
 import type { InlineBoxSpan, ParagraphBlock, ParagraphMeasure } from '@superdoc/contracts';
 import { layoutDocument } from '@superdoc/layout-engine';
 import { measureBlock } from '@superdoc/measuring-dom';

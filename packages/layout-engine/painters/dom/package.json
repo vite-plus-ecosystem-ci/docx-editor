@@ -34,7 +34,6 @@
     "@superdoc/layout-engine": "workspace:*",
     "@superdoc/layout-resolved": "workspace:*",
     "vite": "catalog:",
-    "vitest": "catalog:",
     "vite-plus": "catalog:"
   }
 }

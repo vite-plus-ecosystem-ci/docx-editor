@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Comment, Context, CreateRule, ESTree, Plugin } from '@oxlint/plugins';
+import type { Comment, Context, CreateRule, ESTree, Plugin } from 'vite-plus/lint/plugins';
 import { disableDirectiveReason } from './disable-directive-reason.mts';
 import { noComments } from './no-comments.mts';
 

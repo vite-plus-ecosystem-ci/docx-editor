@@ -35,24 +35,22 @@ function footerBlocks(): FlowBlock[] {
   ];
 }
 
-const measureBlock = vi.fn(
-  async (block: FlowBlock): Promise<Measure> => ({
-    kind: 'paragraph',
-    lines: [
-      {
-        fromRun: 0,
-        fromChar: 0,
-        toRun: (block as ParagraphBlock).runs.length - 1,
-        toChar: 0,
-        width: 100,
-        ascent: 8,
-        descent: 2,
-        lineHeight: 12,
-      },
-    ],
-    totalHeight: 12,
-  }),
-);
+const measureBlock = vi.fn(async (block: FlowBlock): Promise<Measure> => ({
+  kind: 'paragraph',
+  lines: [
+    {
+      fromRun: 0,
+      fromChar: 0,
+      toRun: (block as ParagraphBlock).runs.length - 1,
+      toChar: 0,
+      width: 100,
+      ascent: 8,
+      descent: 2,
+      lineHeight: 12,
+    },
+  ],
+  totalHeight: 12,
+}));
 
 describe('atomic-first-page — provisional/exact measure-cache separation', () => {
   it('never reuses provisional measures for an exact layout of the same blocks (and vice versa)', async () => {

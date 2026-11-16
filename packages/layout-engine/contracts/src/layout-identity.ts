@@ -97,10 +97,8 @@ export const bodyStoryLocator = (): LayoutStoryLocator => ({ kind: 'body' });
 /**
  * Build a `LayoutStoryLocator` for an HF / footnote / endnote story.
  */
-export const namedStoryLocator = (
-  kind: Exclude<LayoutStoryKind, 'body' | 'unknown'>,
-  id: string,
-): LayoutStoryLocator => (id ? { kind, id } : { kind: 'unknown' });
+export const namedStoryLocator = (kind: Exclude<LayoutStoryKind, 'body' | 'unknown'>, id: string): LayoutStoryLocator =>
+  id ? { kind, id } : { kind: 'unknown' };
 
 /**
  * Compute a stable `LayoutFragmentId` for a fragment.

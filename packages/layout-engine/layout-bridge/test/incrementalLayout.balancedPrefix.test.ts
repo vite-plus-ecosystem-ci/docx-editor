@@ -195,15 +195,12 @@ describe('unchanged balanced suffix', () => {
         columns: { count: 1, gap: 0 },
         attrs: { source: 'sectPr', sectionIndex: 0, isFirstSection: true },
       },
-      ...Array.from(
-        { length: 40 },
-        (_, index): FlowBlock => ({
-          kind: 'paragraph',
-          id: `pre${index}`,
-          attrs: { sectionIndex: 0 },
-          runs: [{ kind: 'text', text: `prefix-${index}` }],
-        }),
-      ),
+      ...Array.from({ length: 40 }, (_, index): FlowBlock => ({
+        kind: 'paragraph',
+        id: `pre${index}`,
+        attrs: { sectionIndex: 0 },
+        runs: [{ kind: 'text', text: `prefix-${index}` }],
+      })),
       ...body().map((block) => ({
         ...block,
         attrs: {

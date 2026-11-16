@@ -11,26 +11,24 @@ interface Bridge {
   selectionUnsubscribe: Mock<() => void>;
 }
 
-const bridge = vi.hoisted(
-  (): Bridge => ({
-    observer: null,
-    initialSnapshot: null,
-    observeCount: 0,
-    unsubscribe: vi.fn(),
-    selectionObserver: null,
-    selectionSnapshot: {
-      status: 'ready',
-      empty: true,
-      target: null,
-      selectionTarget: null,
-      activeMarks: [],
-      activeCommentIds: [],
-      activeChangeIds: [],
-      quotedText: '',
-    },
-    selectionUnsubscribe: vi.fn(),
-  }),
-);
+const bridge = vi.hoisted((): Bridge => ({
+  observer: null,
+  initialSnapshot: null,
+  observeCount: 0,
+  unsubscribe: vi.fn(),
+  selectionObserver: null,
+  selectionSnapshot: {
+    status: 'ready',
+    empty: true,
+    target: null,
+    selectionTarget: null,
+    activeMarks: [],
+    activeCommentIds: [],
+    activeChangeIds: [],
+    quotedText: '',
+  },
+  selectionUnsubscribe: vi.fn(),
+}));
 
 vi.mock('./v2-integration/v2-integration.js', () => ({
   loadDefaultV2IntegrationOrFallback: () => new Promise(() => {}),

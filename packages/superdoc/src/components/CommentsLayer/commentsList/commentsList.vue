@@ -178,17 +178,15 @@ const shouldShowResolvedComments = computed(() => {
 });
 
 const resolvedCommentDisplayItems = computed(() =>
-  groupedComments.value.resolvedComments.map(
-    (comment): ReviewDirectoryItem => ({
-      id: comment.commentId,
-      comment,
-      floatingInstanceId: null,
-      floatingPageIndex: null,
-      floatingPositionEntry: null,
-      isFloatingInstanceActive: undefined,
-      threadComments: threadCommentsFor(comment),
-    }),
-  ),
+  groupedComments.value.resolvedComments.map((comment): ReviewDirectoryItem => ({
+    id: comment.commentId,
+    comment,
+    floatingInstanceId: null,
+    floatingPageIndex: null,
+    floatingPositionEntry: null,
+    isFloatingInstanceActive: undefined,
+    threadComments: threadCommentsFor(comment),
+  })),
 );
 
 const displayedMainCount = computed(() => (props.showMainComments ? parentCommentDisplayItems.value.length : 0));

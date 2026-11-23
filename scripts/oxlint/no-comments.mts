@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Comment, CreateRule, ESTree, SourceCode } from '@oxlint/plugins';
+import type { Comment, CreateRule, ESTree, SourceCode } from 'vite-plus/lint/plugins';
 
 export const DIRECTIVE =
   /^(?:\/\/\/?|\/\*+)\s*(?:@ts-(?:expect-error|ignore|check|nocheck)\b|[@#]__PURE__|[@#]__NO_SIDE_EFFECTS__|@vitest-environment\b|@vite-ignore\b|@jsxImportSource\b|webpack[A-Z]\w*:|(?:eslint|oxlint)-(?:disable|enable)\b|prettier-ignore\b|<reference\s)/;

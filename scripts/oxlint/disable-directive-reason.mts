@@ -1,4 +1,4 @@
-import type { Comment, CreateRule } from '@oxlint/plugins';
+import type { Comment, CreateRule } from 'vite-plus/lint/plugins';
 
 export const PROTECTED_RULES: readonly string[] = ['superdoc/no-comments', 'superdoc/disable-directive-reason'];
 export const JUSTIFIED_FORM = '// oxlint-disable-next-line <rule> -- <reason>';

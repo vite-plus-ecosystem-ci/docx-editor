@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "concurrently -k \"tsx server.ts\" \"vite\"",
     "start": "tsx server.ts",
-    "build": "vite build",
-    "preview": "vite preview",
+    "build": "vp build",
+    "preview": "vp preview",
     "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.client.json",
     "test": "pnpm run test:server && pnpm run test:browser",
     "test:server": "tsx --test --test-force-exit test/*.test.ts",
@@ -28,6 +28,6 @@
     "jszip": "^3.10.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.2",
-    "vite": "^7.2.7"
+    "vite": "catalog:"
   }
 }

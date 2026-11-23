@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 
 const require = createRequire(import.meta.url);
-const { describe, it } = process.env.VITEST ? await import('vitest') : require('node:test');
+const { describe, it } = process.env.VITEST ? await import('vite-plus/test') : require('node:test');
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const {
   formatTypeScriptLaunchError,

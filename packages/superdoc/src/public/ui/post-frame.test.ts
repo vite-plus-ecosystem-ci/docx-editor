@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'vite-plus/test';
 import { POST_FRAME_FALLBACK_MS, schedulePostFrameWith, type PostFrameClock } from './post-frame.js';
 
 function manualClock(withFrames: boolean) {
